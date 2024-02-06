@@ -9,8 +9,17 @@
 
     </div>
     <div class="insideform">
-      <h2>Inscription</h2>
-      <p class="proverbe">Le début de notre histoire...</p>
+      <h2>Connexion</h2>
+      <p class="proverbe">Retrouvons nous entre les lignes...</p>
+    <br>
+    <div class="wow">
+      <form (ngSubmit)="onSubmit()">
+        <input type="email" [(ngModel)]="user.email" name="email" required placeholder="Email">
+        <input type="password" [(ngModel)]="user.password" name="password" required placeholder="Mot de passe">
+        <button type="submit" class="button">Connexion</button>
+      </form>
+    </div>
+
     </div>
   </div>
   <div class="droite">

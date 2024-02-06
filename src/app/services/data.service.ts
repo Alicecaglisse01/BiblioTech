@@ -1,23 +1,21 @@
+import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { BOOKS } from './mock/mock-books'; // Assurez-vous que le chemin est correct
+import { USERS } from './mock/mock-users'; // Assurez-vous que le chemin est correct
+import { CATEGORIES } from './mock/mock-categories'; // Assurez-vous que le chemin est correct
+import { PAGES } from './mock/mock-pages'; // Assurez-vous que le chemin est correct
 
-export class DataService implements InMemoryDbService {
+@Injectable({
+  providedIn: 'root'
+})
+export class InMemoryDataService implements InMemoryDbService {
+
   createDb() {
-    const users = [
-      { id: 1, firstname: 'Jean', lastname: 'Dupont', email: 'jean.dupont@example.com', password: 'password123', role: 'user' },
-    ];
+    const books = BOOKS;
+    const users = USERS;
+    const categories = CATEGORIES;
+    const pages = PAGES;
 
-    const categories = [
-      { id: 1, label: 'Romance' },
-    ];
-
-    const book = [
-      { id: 1, title: 'Les Misérables', resume: 'Résumé du livre', image: 'chemin/vers/l_image', createdAt: '2024-01-01T00:00:00Z', updatedAt: '2024-01-01T00:00:00Z', categoryId: 1, authorId: 1 },
-    ];
-
-    const page = [
-      { id: 1, title: 'Chapitre 1', content: 'Contenu du chapitre 1', createdAt: '2024-01-01T00:00:00Z', updatedAt: '2024-01-01T00:00:00Z', bookId: 1 },
-    ];
-
-    return { users, categories, book, page };
+    return { books, users, categories, pages };
   }
 }

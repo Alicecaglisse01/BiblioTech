@@ -3,27 +3,84 @@
 .container {
   width: 100%;
   height: 100vh;
-  background-image: url("../../../assets/images/inscription.jpg");
+  background-image: url("../../../assets/images/connexion.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
 }
-
-
 .header {
   margin-top: 1%;
   margin-left: 2%;
   cursor: pointer;
 }
 
-.header a img {
+.header img {
   transition: transform 0.3s ease;
 }
 
-.header a:hover img {
+.header  img:hover {
   transform: scale(1.05);
 }
 
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+
+.droite{
+  text-align: center;
+  width: 50%;
+  margin-left: 0% ;
+  display: flex;
+}
+
+.gauche{
+  width: 40%;
+}
+
+.form{
+  width: 70%;
+  height: 75%;
+  margin-top: 20%;
+  margin-left: 15%;
+  background-color: black;
+  opacity: 0.2;
+  border: solid 0px;
+  border-radius: 25px;
+}
+
+.insideform{
+  margin-top: -97%;
+  margin-left: 15%;
+  position: relative;
+  width: 70%;
+  height: 75%;
+  border: solid 0px;
+  border-radius: 25px;
+  color: white;
+  padding: 5%;
+  padding-top: 7%;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+.h2{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+.proverbe{
+  margin-top: -4%;
+}
+.jules {
+  margin-top: 25%;
+  width: 60%;
+  background-image: url("../../../assets/images/JulesAssis.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
 
 .button {
@@ -38,12 +95,19 @@
   width: 13%;
   height: 40px;
   margin-top: 1%;
+  position: absolute;
   font-family: "Poppins", sans-serif;
   font-style: normal;
+
 }
 
 #login{
-  margin-left: 55%;
+  margin-left: 64.8%;
+}
+
+#signup{
+  margin-left: 83%;
+
 }
 
 .button:hover {

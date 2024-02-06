@@ -1,50 +1,42 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, NgModule } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Book } from './Entity/book'; // Assurez-vous d'ajuster le chemin d'importation selon votre structure de projet
+import { HttpClient } from '@angular/common/http';
 
-export interface Book {
-  id: number;
-  title: string;
-  resume: string;
-  image: string;
-  createdAt: string;
-  updatedAt: string;
-  categoryId: number;
-  authorId: number;
-}
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class BookService {
-  private booksUrl = 'api/book';  // URL de l'API web
 
-  constructor(private http: HttpClient) { }
+export class BookService {
+  private booksUrl = 'api/books'; // URL de l'API pour les livres
+
+  constructor(private http: HttpClient) {}
 
   // Récupérer tous les livres
-  getBooks(): Observable<Book[]> {
+  getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.booksUrl);
   }
 
-  // Récupérer un livre spécifique par son ID
-  getBook(id: number): Observable<Book> {
-    const url = `${this.booksUrl}/${id}`;
-    return this.http.get<Book>(url);
+  // Récupérer un livre par son ID
+  getBookById(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.booksUrl}/${id}`);
   }
 
-  // Ajouter un nouveau livre
-  addBook(book: Book): Observable<Book> {
+  // Créer un nouveau livre
+  createBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.booksUrl, book);
   }
 
-  // Mettre à jour un livre
-  updateBook(book: Book): Observable<any> {
-    return this.http.put(`${this.booksUrl}/${book.id}`, book);
+  // Modifier un livre
+  updateBook(book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.booksUrl}/${book.id}`, book);
   }
 
   // Supprimer un livre
   deleteBook(id: number): Observable<Book> {
-    const url = `${this.booksUrl}/${id}`;
-    return this.http.delete<Book>(url);
+    return this.http.delete<Book>(`${this.booksUrl}/${id}`);
   }
+
+  // Méthodes supplémentaires pour trier et filtrer les livres peuvent être ajoutées ici
 }

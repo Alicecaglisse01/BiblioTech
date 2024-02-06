@@ -1,0 +1,6 @@
+<!-- book-list.component.html -->
+<ul *ngIf="books">
+  <li *ngFor="let book of books">
+    {{ book.title }} par {{ book.authorId }}
+  </li>
+</ul>

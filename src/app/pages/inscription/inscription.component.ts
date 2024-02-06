@@ -1,29 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { BookService, Book } from '../../services/book.service'; // Assurez-vous d'ajuster le chemin selon votre structure de projet
+import { Component } from '@angular/core';
+import { Router } from '@angular/router'; // Importe Router
+import { AccueilComponent } from '../accueil/accueil.component';
+import { ConnexionComponent } from '../connexion/connexion.component';
+import { BookListComponent } from '../BookListComponent/booklist.component';
+
 
 @Component({
   selector: 'app-inscription',
+  standalone: true,
+  imports: [AccueilComponent, ConnexionComponent, BookListComponent],
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })
-export class InscriptionComponent implements OnInit {
-  books: Book[] = []; // Stocke la liste des livres
-
-  constructor(private router: Router, private bookService: BookService) {}
-
-  ngOnInit() {
-    this.getBooks(); // Récupère les livres lors de l'initialisation du composant
-  }
-
-  getBooks(): void {
-    this.bookService.getBooks().subscribe(books => this.books = books);
-  }
+export class InscriptionComponent {
+  constructor(private router: Router) {} // Ajoute le Router au constructeur
 
   navigate(path: string) {
-    this.router.navigate([path]);
+    this.router.navigate([path]); // Utilise le router pour naviguer
   }
 }
-
-
-
