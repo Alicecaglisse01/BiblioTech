@@ -3,28 +3,30 @@
     <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo" (click)="navigate('')">
   </header>
 
-  <div class="gauche">
-    <div class="form">
-
-
-    </div>
-    <div class="insideform">
-      <h2>Connexion</h2>
-      <p class="proverbe">Retrouvons nous entre les lignes...</p>
-    <br>
-    <div class="wow">
-      <form (ngSubmit)="onSubmit()">
-        <input type="email" [(ngModel)]="user.email" name="email" required placeholder="Email">
-        <input type="password" [(ngModel)]="user.password" name="password" required placeholder="Mot de passe">
-        <button type="submit" class="button">Connexion</button>
-      </form>
-    </div>
-
-    </div>
-  </div>
-  <div class="droite">
-    <div class="jules"></div>
-  </div>
+  
   <button (click)="navigate('connexion')" class="button" id="login">Connexion</button>
   <button (click)="navigate('inscription')" class="button" id="signup">Inscription</button>
+
+  <div class="gauche">
+    <img src="../../../assets/images/JulesDebout.png" alt="Jules debout avec des livres" class="jules">
+  </div>
+
+  <div class="droite">
+    <div class="form-background"></div>
+    <div class="formulaire">
+      <h1>Connexion</h1>
+      <p class="slogan">Retrouvons nous entre les lignes</p>
+      <br><br><br>
+      <form>
+        <p>Email</p>
+        <input type="email" name="email" required placeholder="Email">
+        <p>Mot de passe</p>
+        <input type="password" name="password" required placeholder="Mot de passe">
+        <button type="submit" class="btn-form">Connexion</button>
+        <br><br>
+        <p class="finalement-inscription">Je n'ai pas encore de compte ? <a href="/inscription">M'inscrire</a></p>
+      </form>
+    </div>
+  </div>
+
 </div>
