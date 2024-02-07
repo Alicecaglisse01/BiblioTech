@@ -3,12 +3,13 @@
 .container {
   width: 100%;
   height: 100vh;
-  background-image: url("../../../assets/images/inscription.jpg");
+  background-image: url("../../../assets/images/connexion.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
 }
 .header {
+  z-index: 2;
   margin-top: 1%;
   margin-left: 2%;
   cursor: pointer;
@@ -24,66 +25,16 @@
 
 
 .logo {
+  z-index: 2;
   width: 120px;
   height: auto;
 }
 
 
-.droite{
-  text-align: center;
-  width: 50%;
-  margin-left: 0% ;
-  display: flex;
-}
-
-.gauche{
-  width: 40%;
-}
-
-.form{
-  width: 70%;
-  height: 75%;
-  margin-top: 20%;
-  margin-left: 15%;
-  background-color: black;
-  opacity: 0.2;
-  border: solid 0px;
-  border-radius: 25px;
-}
-
-.insideform{
-  margin-top: -97%;
-  margin-left: 15%;
-  position: relative;
-  width: 70%;
-  height: 75%;
-  border: solid 0px;
-  border-radius: 25px;
-  color: white;
-  padding: 5%;
-  padding-top: 7%;
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-}
-
-.h2{
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-}
-
-.proverbe{
-  margin-top: -4%;
-}
-.jules {
-  margin-top: 25%;
-  width: 60%;
-  background-image: url("../../../assets/images/JulesAssis.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 
 
 .button {
+  z-index: 2;
   padding: 10px 20px;
   margin: 0 40px;
   color: #fff;
@@ -106,6 +57,7 @@
 }
 
 #signup{
+
   margin-left: 83%;
 
 }
@@ -114,4 +66,103 @@
   background-color: white;
   color: black;
 
+}
+
+
+.gauche{
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 40%;
+}
+
+.jules{
+  width: 45%;
+  margin-top: 25%;
+  margin-left: 0%;
+}
+
+.droite{
+  z-index: 1;
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin-left: 40%;
+}
+
+.form-background{
+  position: absolute;
+  background-color: black;
+  opacity: 0.5;
+  width: 70%;
+  height: 70%;
+  margin-top: 20%;
+  margin-left: 20%;
+  border: solid 0px;
+  border-radius: 50px;
+}
+
+.formulaire{
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  margin-left: 25%;
+  margin-top: 26%;
+  border: solid 0px;
+  border-radius: 50px;
+  color: white;
+  font-family: "Poppins"; 
+  
+}
+
+.slogan{
+  font-size:x-large
+}
+
+h1 {
+  font-family: "Poppins", extra-bold; 
+}
+
+input{
+  width: 100%;
+  height: 40px;
+  border: solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  
+}
+
+input::placeholder{
+  font-family: poppins;
+  color: white;
+}
+
+input::content{
+  padding-left: 3%;
+
+}
+
+.btn-form{
+  width: 100%;
+  height: 50px;
+  border: solid 0px;
+  border-radius: 15px;
+  margin-top: 10%;
+  background-color: #2677a7;
+  color: white;
+  font-family: poppins;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+a{
+  color: white;
+  outline: none;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.finalement-inscription{
+text-align: center;
 }

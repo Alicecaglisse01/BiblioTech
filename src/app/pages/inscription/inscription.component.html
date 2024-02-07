@@ -3,28 +3,35 @@
     <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo" (click)="navigate('')">
   </header>
 
+  
+  <button (click)="navigate('connexion')" class="button" id="login">Connexion</button>
+  <button (click)="navigate('inscription')" class="button" id="signup">Inscription</button>
+
   <div class="gauche">
-    <div class="form">
-
-
-    </div>
-    <div class="insideform">
-      <h2>Connexion</h2>
-      <p class="proverbe">Le début de notre histoire...</p>
-    <br>
-    <div class="wow">
+    <div class="form-background"></div>
+    <div class="formulaire">
+      <h1>Inscription</h1>
+      <p class="slogan">Le début de notre histoire...</p>
+      <br><br>
       <form>
+        <p>Nom</p>
+        <input type="nom" name="nom" required placeholder="Nom">
+        <p>Prénom</p>
+        <input type="prenom" name="prenom" required placeholder="Prénom">
+        <p>Email</p>
         <input type="email" name="email" required placeholder="Email">
+        <p>Mot de passe</p>
         <input type="password" name="password" required placeholder="Mot de passe">
-        <button type="submit" class="button">Connexion</button>
+        <button type="submit" class="btn-form">Inscription</button>
+        <br>
+        <p class="finalement-inscription">J'ai déjà un compte ? <a href="/connexion">Me connecter</a></p>
       </form>
     </div>
 
-    </div>
   </div>
+
   <div class="droite">
-    <div class="jules"></div>
+    <img src="../../../assets/images/JulesAssis.png" alt="Jules debout avec des livres" class="jules">
   </div>
-  <button (click)="navigate('connexion')" class="button" id="login">Connexion</button>
-  <button (click)="navigate('inscription')" class="button" id="signup">Inscription</button>
+
 </div>
