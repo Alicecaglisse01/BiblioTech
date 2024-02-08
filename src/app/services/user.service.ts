@@ -23,11 +23,7 @@ export class UserService {
   }
 
   // Créer un nouvel utilisateur (pour les admins)
-  createUser(user: User, currentUserId: number): Observable<User> {
-    // Simuler la vérification du rôle d'administrateur
-    if (!this.isAdmin(currentUserId)) {
-      return throwError(() => new Error('Unauthorized'));
-    }
+  createUser(user: User, currentUserId?: number): Observable<User> {    // Simuler la vérification du rôle d'administrateur
     return this.http.post<User>(this.usersUrl, user);
   }
 
