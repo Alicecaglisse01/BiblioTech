@@ -5,6 +5,8 @@ import { InscriptionComponent } from '../app/pages/inscription/inscription.compo
 import { BookListComponent } from './pages/BookListComponent/booklist.component';
 import { AuthGuard } from './services/auth.guard';
 import { BookDetailComponent } from './pages/book-detail/book-detail.component';
+import { MesContributionsComponent } from './pages/mes-contributions/mes-contributions.component';
+import { ProfilComponent } from './pages/profil/profil.component';
 
 export const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -13,4 +15,6 @@ export const routes: Routes = [
   {  path: 'books', component: BookListComponent },
   // {  path: 'books', component: BookListComponent, canActivate: [AuthGuard] }
   { path: 'book/:id', component: BookDetailComponent },
+  { path: 'contributions', component: MesContributionsComponent },
+  { path: 'profil', component: ProfilComponent },
 ];
