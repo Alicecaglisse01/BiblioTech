@@ -17,15 +17,17 @@
       <h1>Connexion</h1>
       <p class="slogan">Retrouvons nous entre les lignes</p>
       <br><br><br>
-      <form>
+      <form (ngSubmit)="onSubmit()">
         <p>Email</p>
-        <input type="email" name="email" required placeholder="Email">
+        <input type="email" [(ngModel)]="user.email" name="email" required placeholder="Email">
         <p>Mot de passe</p>
-        <input type="password" name="password" required placeholder="Mot de passe">
+        <input type="password" [(ngModel)]="user.password" name="password" required placeholder="Mot de passe">
         <button type="submit" class="btn-form">Connexion</button>
         <br><br>
         <p class="finalement-inscription">Je n'ai pas encore de compte ? <a href="/inscription">M'inscrire</a></p>
       </form>
+      
+      
     </div>
   </div>
 

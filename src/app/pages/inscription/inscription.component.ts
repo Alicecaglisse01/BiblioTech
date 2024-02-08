@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router'; // Importe Router
 import { AccueilComponent } from '../accueil/accueil.component';
 import { ConnexionComponent } from '../connexion/connexion.component';
-import { BookListComponent } from '../BookListComponent/booklist.component';
 
 
 @Component({
   selector: 'app-inscription',
   standalone: true,
-  imports: [AccueilComponent, ConnexionComponent, BookListComponent],
+  imports: [AccueilComponent, ConnexionComponent,],
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })

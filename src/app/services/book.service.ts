@@ -1,5 +1,5 @@
 import { Injectable, NgModule } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, map } from 'rxjs';
 import { Book } from './Entity/book'; // Assurez-vous d'ajuster le chemin d'importation selon votre structure de projet
 import { HttpClient } from '@angular/common/http';
 
@@ -36,6 +36,12 @@ export class BookService {
   // Supprimer un livre
   deleteBook(id: number): Observable<Book> {
     return this.http.delete<Book>(`${this.booksUrl}/${id}`);
+  }
+
+  searchBooksByTitle(searchTerm: string): Observable<Book[]> {
+    return this.getAllBooks().pipe(
+      map(books => books.filter(book => book.title.toLowerCase().includes(searchTerm.toLowerCase())))
+    );
   }
 
   // Méthodes supplémentaires pour trier et filtrer les livres peuvent être ajoutées ici

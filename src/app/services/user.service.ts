@@ -12,11 +12,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   // Récupérer tous les utilisateurs (pour les admins)
-  getAllUsers(currentUserId: number): Observable<User[]> {
+  getAllUsers(): Observable<User[]> {
     // Simuler la vérification du rôle d'administrateur
-    if (!this.isAdmin(currentUserId)) {
-      return throwError(() => new Error('Unauthorized'));
-    }
     return this.http.get<User[]>(this.usersUrl);
   }
 
@@ -51,6 +48,8 @@ export class UserService {
     }
     return this.http.delete<User>(`${this.usersUrl}/${id}`);
   }
+
+  
 
   // Méthode privée pour déterminer si l'utilisateur est un administrateur
   private isAdmin(userId: number): boolean {

@@ -1,6 +1,38 @@
-<!-- book-list.component.html -->
-<ul *ngIf="books">
-  <li *ngFor="let book of books">
-    {{ book.title }} par {{ book.authorId }}
-  </li>
-</ul>
+<!-- booklist.component.html -->
+<div class="container">
+  <header class="header">
+    <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo"> 
+  </header>
+  <button (click)="logout()" class="button" id="exit">Déconnexion</button>
+
+
+
+  <!-- Champ de recherche pour filtrer les livres par titre -->
+  <div class="search-container">
+    <input [(ngModel)]="searchText" type="text" placeholder="Rechercher un livre par titre..." (input)="searchBooks()">
+  </div>
+
+  <!-- Afficher la liste des livres ici -->
+  <div class="card-container">
+    <div class="card" *ngFor="let book of books">
+      <img alt="Couverture de {{ book.title }}" class="card-img">
+      <div class="card-content">
+        <p class="card-title">{{ book.title }}</p>
+        <p class="card-author">{{book.authorName}}</p>
+        <p class="card-rating">Note : 4,5</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="card-container">
+    <div class="card" *ngFor="let book of books">
+      <img [src]="book.cover" alt="Couverture de {{ book.title }}" class="card-img">
+      <div class="card-content">
+        <p class="card-title">{{ book.title }}</p>
+        <p class="card-author">{{ book.author }}</p>
+        <p class="card-rating">Note : {{ book.rating }}</p>
+      </div>
+    </div>
+  </div> -->
+
+</div>
