@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../services/Entity/book';
 import { CommonModule } from '@angular/common';
@@ -16,12 +16,18 @@ export class BookDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: BookService
+    private bookService: BookService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     const bookId = +this.route.snapshot.params['id'];
     this.bookService.getBookById(bookId).subscribe(book => this.book = book);
+  }
+  logout(): void {
+    // Redirige l'utilisateur vers la page de connexion
+    this.router.navigate(['/connexion']);
+    // Ici, vous pouvez également ajouter une logique pour effacer toutes les données d'authentification stockées
   }
 }
 

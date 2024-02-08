@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  
+  .container {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../../assets/images/inscription.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    position: absolute;
+  }
+  
+  
+
+.header {
+  z-index: 2;
+  margin-top: 1%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.header img {
+  transition: transform 0.3s ease;
+}
+
+.header  img:hover {
+  transform: scale(1.05);
+}
+
+
+.logo {
+  z-index: 2;
+  width: 120px;
+  height: auto;
+}
+
+
+.button {
+  z-index: 2;
+  padding: 10px 20px;
+  margin: 0 40px;
+  color: #fff;
+  background-color: transparent;
+  border: solid 3px white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 13%;
+  height: 50px;
+  margin-top: 2%;
+  position: absolute;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  margin-left: 80%;
+
+}
+
+
+.fenetre{
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    background-color: #b9511f;
+    border: solid 0px;
+    border-radius: 25px;
+    margin-top: 8%;
+    margin-left: 5%;
+
+}
+
+h2{
+    color: white;
+    font-family: poppins, extra bold;
+    text-align: center;
+    margin-top:  10%;
+    font-size: 100px;
+}
