@@ -105,6 +105,7 @@ html, body {
   }
   
   .card {
+    cursor: pointer;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -138,6 +139,12 @@ html, body {
   .card-rating {
     font-size: 1em;
     color: #f5a623; /* Couleur de l'étoile ou la note */
+  }
+
+  .card:hover,
+  .card:focus {
+    transform: scale(1.05); /* Légèrement plus grand lors du survol */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Ombre plus prononcée pour un effet de profondeur */
   }
 
 
