@@ -68,4 +68,7 @@ export class BookListComponent implements OnInit {
     this.router.navigate(['/connexion']);
     // Ici, vous pouvez également ajouter une logique pour effacer toutes les données d'authentification stockées
   }
+  goToBookDetail(bookId: number) {
+    this.router.navigate(['/book', bookId]);
+  }
 }

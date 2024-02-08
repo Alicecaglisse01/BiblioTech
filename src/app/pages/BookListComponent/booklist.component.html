@@ -14,7 +14,7 @@
 
   <!-- Afficher la liste des livres ici -->
   <div class="card-container">
-    <div class="card" *ngFor="let book of books">
+    <div class="card" *ngFor="let book of books" (click)="goToBookDetail(book.id)">
       <img alt="Couverture de {{ book.title }}" class="card-img">
       <div class="card-content">
         <p class="card-title">{{ book.title }}</p>
