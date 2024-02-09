@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../services/Entity/category';
 import { FormsModule } from '@angular/forms';
+import { Page } from '../../services/Entity/page';
+import { PageService } from '../../services/page.service';
 
 @Component({
   selector: 'app-mes-contributions',
@@ -22,6 +24,8 @@ export class MesContributionsComponent implements OnInit {
   showForm: boolean = false;
   categories: Category[] = [];
 
+
+
   newBook: Partial<Book> = {
     title: '',
     resume: '',
@@ -29,12 +33,22 @@ export class MesContributionsComponent implements OnInit {
     categoryId: 0, // Initialisez avec une valeur par défaut ou sélectionnez par l'utilisateur
   };
 
+  newPages: Partial<Page>[] = []; // Tableau pour stocker les nouvelles pages ajoutées
+
+
 
   constructor(
     private router: Router,
     private bookService: BookService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private pageService : PageService
+
   ) {}
+
+  addPage() {
+    this.newPages.push({ title: '', content: '' }); // Ajoute une nouvelle page vide au tableau
+  }
+
 
 
   getCategoryName(categoryId: number): string {
@@ -99,22 +113,32 @@ export class MesContributionsComponent implements OnInit {
       return;
     }
 
-    // Assurez-vous que authorId est ajouté au livre avant de l'envoyer
     const bookToCreate = { ...this.newBook, authorId } as Book;
+    this.bookService.createBook(bookToCreate).subscribe(book => {
+      // Une fois le livre créé, itérez sur chaque nouvelle page et créez-la
+      this.newPages.forEach(newPage => {
+        const pageToCreate = { ...newPage, bookId: book.id } as Page; // Assurez-vous que l'id du livre est correctement assigné
+        this.pageService.createPage(pageToCreate).subscribe({
+          next: (createdPage) => {
+            console.log('Page ajoutée avec succès:', createdPage);
+          },
+          error: (error) => {
+            console.error("Erreur lors de l'ajout de la page:", error);
+          }
+        });
+      });
 
-    this.bookService.createBook(bookToCreate).subscribe({
-      next: (book) => {
-        this.myBooks.push(book);
-        this.showForm = false; // Cacher le formulaire après l'ajout
-        // Réinitialiser newBook pour un futur usage
-        this.newBook = { title: '', resume: '', image: '', categoryId: 0 };
-      },
-      error: (error) => {
-        console.error("Erreur lors de l'ajout du livre", error);
-        alert("Erreur lors de l'ajout du livre");
-      }
+      this.myBooks.push(book); // Ajoutez le livre nouvellement créé à la liste
+      this.showForm = false; // Cachez le formulaire
+      this.newBook = { title: '', resume: '', image: '', categoryId: 0 }; // Réinitialisez le formulaire
+      this.newPages = []; // Réinitialisez les pages pour de futures utilisations
+    }, error => {
+      console.error("Erreur lors de l'ajout du livre:", error);
+      alert("Erreur lors de l'ajout du livre");
     });
   }
+
+
 
 
 

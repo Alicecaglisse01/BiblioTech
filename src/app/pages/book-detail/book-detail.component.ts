@@ -20,6 +20,8 @@ export class BookDetailComponent implements OnInit {
   isAuthor: boolean = false;
 
 
+
+
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,

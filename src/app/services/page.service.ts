@@ -7,15 +7,18 @@ import { Page } from './Entity/page';
   providedIn: 'root'
 })
 export class PageService {
-  private pagesUrl = 'api/pages'; // URL to web API for pages
+  private pagesUrl = 'api/pages';
+
 
   constructor(private http: HttpClient) {}
 
-  // Get pages by bookId
   getPagesByBookId(bookId: number): Observable<Page[]> {
     const url = `${this.pagesUrl}/?bookId=${bookId}`;
     return this.http.get<Page[]>(url);
   }
 
-  // Other methods as needed...
+  createPage(page: Page): Observable<Page> {
+    return this.http.post<Page>(this.pagesUrl, page);
+  }
+
 }

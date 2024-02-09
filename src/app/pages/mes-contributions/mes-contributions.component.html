@@ -30,11 +30,10 @@
 
   <div *ngIf="showForm" class="add-book-form">
     <form (ngSubmit)="addBook()">
-      <p class="addbookp">Titre : </p>
+      <p class="addbookp">Titre du livre : </p>
       <input type="text" [(ngModel)]="newBook.title" name="title" placeholder="Titre" required><br><br>
       <p class="addbookp" >Résumé :</p>
       <textarea [(ngModel)]="newBook.resume" name="resume" placeholder="Résumé" required></textarea><br><br>
-      <!-- Dans votre formulaire... -->
 <div class="form-group">
   <label for="category" class="addbookp">Catégorie:</label><br>
   <select [(ngModel)]="newBook.categoryId" name="categoryId" required>
@@ -43,8 +42,21 @@
 </div> <br>
 
       <button type="submit" class="btnenregistrer">Enregistrer</button>
+    </form><br>
+    <button (click)="addPage()" class="btn-add-page">Ajouter une page</button>
+
+  <div *ngFor="let page of newPages; let i = index">
+    <form>
+      <p>Titre de la page :</p>
+      <input type="text" [(ngModel)]="page.title" name="pageTitle{{i}}" required>
+      <p>Contenu de la page :</p>
+      <textarea [(ngModel)]="page.content" name="pageContent{{i}}" required></textarea>
     </form>
   </div>
+  </div>
+
+
+
 
   <button (click)="showAddBookForm()" class="btn-add">+</button>
 
