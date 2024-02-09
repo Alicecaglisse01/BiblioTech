@@ -61,6 +61,12 @@ html, body {
 
 }
 
+.button:hover{
+  background-color: white;
+  color: black;
+}
+
+
 
 
 /* Style pour le champ de recherche */

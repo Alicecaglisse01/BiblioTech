@@ -1,4 +1,6 @@
-<div class="container">
+
+  
+  <div class="container">
     <header class="header">
       <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo"> 
       <nav class="main-nav">
@@ -8,14 +10,19 @@
       </nav>
     </header>
     <button (click)="logout()" class="button" id="exit">Déconnexion</button>
-<div class="fenetre">
-<div *ngIf="book">
-    <h2>{{ book.title }}</h2>
-    <!-- afficher d'autres détails du livre ici -->
+    <div class="fenetre" *ngIf="book">
+      <h2>{{ book.title }}</h2>
+      <div class="chapitre" *ngIf="pages.length">
+        <div class="page-content">
+          <h3>{{ pages[currentPageIndex].title }}</h3><br><br>
+          <p class="content">{{ pages[currentPageIndex].content }}</p>
+          <p class="page-number">Page {{ currentPageIndex + 1 }} sur {{ pages.length }}</p>
+        </div>
+        <div class="navigation-buttons">
+          <button (click)="previousPage()" class="btn" [disabled]="currentPageIndex === 0">Précédent</button>
+          <button (click)="nextPage()" class="btn2" [disabled]="currentPageIndex === pages.length - 1">Suivant</button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-
-  </div>
-
   

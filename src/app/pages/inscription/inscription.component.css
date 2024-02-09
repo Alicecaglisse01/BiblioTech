@@ -166,3 +166,9 @@ a{
 .finalement-inscription{
 text-align: center;
 }
+
+.text-danger{
+  color: red;
+  font-weight: bold;
+  font-size: large;
+}

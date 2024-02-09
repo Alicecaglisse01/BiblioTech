@@ -22,7 +22,10 @@
         <input type="email" [(ngModel)]="newUser.email" name="email" required placeholder="Email">
         <p>Mot de passe</p>
         <input type="password" [(ngModel)]="newUser.password" name="password" required placeholder="Mot de passe">
+
         <button type="submit" class="btn-form">Inscription</button>
+        <small class="form-text text-danger" *ngIf="passwordValidationMessage">{{ passwordValidationMessage }}</small>
+
         <br>
         <p class="finalement-inscription">J'ai déjà un compte ? <a href="/connexion">Me connecter</a></p>
       </form>
