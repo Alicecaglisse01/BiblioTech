@@ -1,7 +1,7 @@
 <!-- booklist.component.html -->
 <div class="container">
   <header class="header">
-    <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo"> 
+    <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo">
     <nav class="main-nav">
       <a (click)="goBooksPage()" class="nav-link">Recherche</a>
       <a (click)="goContributionsPage()" class="nav-link">Mes contributions</a>
@@ -24,7 +24,9 @@
       <div class="card-content">
         <p class="card-title">{{ book.title }}</p>
         <p class="card-author">{{book.authorName}}</p>
-        <p class="card-rating">Note : 4,5</p>
+        <p class="card-rating">{{book.resume}}</p>
+        <p class="card-category">{{ book.categoryName }}</p> <!-- Affiche le label de la catégorie -->
+
       </div>
     </div>
   </div>

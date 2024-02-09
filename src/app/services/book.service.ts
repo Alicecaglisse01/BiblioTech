@@ -2,6 +2,7 @@ import { Injectable, NgModule } from '@angular/core';
 import { Observable, forkJoin, map } from 'rxjs';
 import { Book } from './Entity/book'; // Assurez-vous d'ajuster le chemin d'importation selon votre structure de projet
 import { HttpClient } from '@angular/common/http';
+import { Category } from './Entity/category';
 
 
 @Injectable({
@@ -50,6 +51,12 @@ getBooksByAuthor(authorId: number): Observable<Book[]> {
     map(books => books.filter(book => book.authorId === authorId))
   );
 }
+
+// Dans BookService
+getCategories(): Observable<Category[]> {
+  return this.http.get<Category[]>(`api/categories`);
+}
+
 
 
 

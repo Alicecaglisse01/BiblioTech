@@ -6,19 +6,41 @@
       <a (click)="goContributionsPage()" class="nav-link">Mes contributions</a>
       <a (click)="goProfilPage()" class="nav-link">Profil</a>
     </nav>
-    
+
   </header>
 
   <button (click)="logout()" class="button" id="exit">Déconnexion</button>
 
   <h1>Mes contributions</h1>
+  <!-- Avant le début de .card-container -->
   <div class="card-container">
     <div class="card" *ngFor="let book of myBooks">
       <img alt="Couverture de {{ book.title }}" class="card-img">
       <div class="card-content">
         <p class="card-title">{{ book.title }}</p>
-        <p class="card-rating">Note : 4,5</p>
+        <p class="card-rating">{{book.resume}}</p>
       </div>
     </div>
   </div>
+
+  <div *ngIf="showForm" class="add-book-form">
+    <form (ngSubmit)="addBook()">
+      <p class="addbookp">Titre : </p>
+      <input type="text" [(ngModel)]="newBook.title" name="title" placeholder="Titre" required><br><br>
+      <p class="addbookp" >Résumé :</p>
+      <textarea [(ngModel)]="newBook.resume" name="resume" placeholder="Résumé" required></textarea><br><br>
+      <!-- Dans votre formulaire... -->
+<div class="form-group">
+  <label for="category" class="addbookp">Catégorie:</label><br>
+  <select [(ngModel)]="newBook.categoryId" name="categoryId" required>
+    <option *ngFor="let category of categories" [value]="category.id">{{ category.label }}</option>
+  </select>
+</div> <br>
+
+      <button type="submit" class="btnenregistrer">Enregistrer</button>
+    </form>
+  </div>
+
+  <button (click)="showAddBookForm()" class="btn-add">+</button>
+
 </div>
