@@ -28,10 +28,13 @@ export class ConnexionComponent {
     if (validUser) {
       // Stockez les détails de l'utilisateur connecté dans le localStorage
       localStorage.setItem('user', JSON.stringify(validUser));
+      localStorage.setItem('userId', validUser.id.toString());
+
+
       this.router.navigate(['/books']);
     } else {
       alert('Identifiants incorrects');
     }
   }
-  
+
 }

@@ -17,6 +17,8 @@ export class BookDetailComponent implements OnInit {
   book!: Book;
   pages: Page[] = [];
   currentPageIndex: number = 0; // Index de la page actuelle
+  isAuthor: boolean = false;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -25,10 +27,26 @@ export class BookDetailComponent implements OnInit {
     private router: Router
   ) {}
 
+
   ngOnInit() {
     const bookId = +this.route.snapshot.params['id'];
-    this.bookService.getBookById(bookId).subscribe(book => this.book = book);
-    this.pageService.getPagesByBookId(bookId).subscribe(pages => this.pages = pages);
+    const userId = localStorage.getItem('userId'); // Récupérez l'userId pour vérifier l'autorisation
+
+    this.bookService.getBookById(bookId).subscribe(book => {
+        this.book = book;
+        // Assurez-vous que les deux valeurs sont des chaînes pour la comparaison
+        this.isAuthor = book.authorId.toString() === userId;
+        console.log('Author ID:', book.authorId, 'User ID:', userId, 'Is Author:', this.isAuthor); // Pour le débogage
+        this.pageService.getPagesByBookId(bookId).subscribe(pages => this.pages = pages);
+    });
+}
+
+
+
+  editBook() {
+    // Logique pour activer le mode d'édition ou naviguer vers un composant de formulaire d'édition
+    // Par exemple, vous pouvez naviguer vers une route avec un formulaire d'édition pour le livre
+    this.router.navigate(['/edit-book', this.book.id]);
   }
 
   nextPage() {
@@ -41,7 +59,7 @@ export class BookDetailComponent implements OnInit {
       this.currentPageIndex--;
     }
   }
-  
+
 
   // Ajoutez une méthode pour revenir à la page précédente si nécessaire
 
@@ -49,7 +67,7 @@ export class BookDetailComponent implements OnInit {
     localStorage.removeItem('user');
     this.router.navigate(['/connexion']);
   }
-  
+
   // Méthodes pour la navigation restent inchangées...
 
 
@@ -62,6 +80,6 @@ export class BookDetailComponent implements OnInit {
   goBooksPage(){
     this.router.navigate(['/books'])
   }
-  
+
 }
 

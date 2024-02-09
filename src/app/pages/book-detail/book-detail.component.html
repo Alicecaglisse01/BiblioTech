@@ -1,8 +1,11 @@
 
-  
+
   <div class="container">
+    <div *ngIf="isAuthor">
+      <button class="modifier" (click)="editBook()">	🖊️</button>
+    </div>
     <header class="header">
-      <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo"> 
+      <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo">
       <nav class="main-nav">
         <a (click)="goBooksPage()" class="nav-link">Recherche</a>
         <a (click)="goContributionsPage()" class="nav-link">Mes contributions</a>
@@ -22,7 +25,8 @@
           <button (click)="previousPage()" class="btn" [disabled]="currentPageIndex === 0">Précédent</button>
           <button (click)="nextPage()" class="btn2" [disabled]="currentPageIndex === pages.length - 1">Suivant</button>
         </div>
+
+
       </div>
     </div>
   </div>
-  
