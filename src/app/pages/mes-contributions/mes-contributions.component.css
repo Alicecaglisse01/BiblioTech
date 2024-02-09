@@ -225,3 +225,11 @@ input::placeholder{
   font-family: poppins;
   color: white;
 }
+
+
+.delete-icon {
+  cursor: pointer;
+  float: right; /* Place l'icône à droite */
+  margin-right: 10px; /* Ajoute un peu d'espace à droite */
+  font-size: 24px; /* Ajustez la taille de l'emoji */
+}

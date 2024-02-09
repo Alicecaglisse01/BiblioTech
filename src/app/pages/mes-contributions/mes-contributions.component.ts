@@ -37,15 +37,46 @@ export class MesContributionsComponent implements OnInit {
   ) {}
 
 
+  getCategoryName(categoryId: number): string {
+    const category = this.categories.find(cat => cat.id === categoryId);
+    return category ? category.label : 'Catégorie inconnue';
+  }
+
+  deleteBook(bookId: number) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce livre ?')) {
+      this.bookService.deleteBook(bookId).subscribe({
+        next: () => {
+          alert('Livre supprimé avec succès.');
+          // Filtrer le livre supprimé de la liste des livres affichés
+          this.myBooks = this.myBooks.filter(book => book.id !== bookId);
+        },
+        error: (err) => {
+          console.error('Erreur lors de la suppression du livre', err);
+          alert('Une erreur est survenue lors de la suppression du livre.');
+        }
+      });
+    }
+  }
+
 
   ngOnInit() {
     const authorId = this.getCurrentUserId();
     if (authorId) {
-      this.bookService.getBooksByAuthor(authorId).subscribe(books => this.myBooks = books);
+      this.categoryService.getCategories().subscribe(categories => {
+        this.categories = categories;
+        this.bookService.getBooksByAuthor(authorId).subscribe(books => {
+          this.myBooks = books.map(book => {
+            const category = this.categories.find(cat => cat.id === book.categoryId);
+            return {
+              ...book,
+              categoryName: category ? category.label : 'Catégorie inconnue',
+            };
+          });
+        });
+      });
     }
-    // Chargez les catégories
-    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
   }
+
 
   showAddBookForm() {
     this.showForm = true;
@@ -84,6 +115,8 @@ export class MesContributionsComponent implements OnInit {
       }
     });
   }
+
+
 
 
 

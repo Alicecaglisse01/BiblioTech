@@ -19,6 +19,11 @@
       <div class="card-content">
         <p class="card-title">{{ book.title }}</p>
         <p class="card-rating">{{book.resume}}</p>
+        <p class="card-category">{{ getCategoryName(book.categoryId) }}</p>
+
+        <span class="delete-icon" (click)="deleteBook(book.id)">🗑️</span>
+
+
       </div>
     </div>
   </div>
