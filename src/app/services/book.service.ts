@@ -44,5 +44,15 @@ export class BookService {
     );
   }
 
+  // Dans book.service.ts
+getBooksByAuthor(authorId: number): Observable<Book[]> {
+  return this.http.get<Book[]>(this.booksUrl).pipe(
+    map(books => books.filter(book => book.authorId === authorId))
+  );
+}
+
+
+
+
   // Méthodes supplémentaires pour trier et filtrer les livres peuvent être ajoutées ici
 }

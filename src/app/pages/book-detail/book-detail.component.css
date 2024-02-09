@@ -77,3 +77,24 @@ h2{
     margin-top:  10%;
     font-size: 100px;
 }
+
+.main-nav {
+  position: absolute;
+  display: flex;
+  gap: 200px; /* Espacement entre les liens */
+  margin-top: -3%;
+  margin-left: 10%;
+}
+
+.nav-link {
+  font-family: Poppins;
+  text-decoration: none;
+  color: #fff; /* Couleur du texte */
+  padding: 10px;
+  border-radius: 5px; /* Bords arrondis */
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  background-color: #0056b3; /* Couleur de fond au survol */
+}

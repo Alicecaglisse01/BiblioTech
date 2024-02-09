@@ -1,10 +1,40 @@
 <div class="container">
   <header class="header">
     <img src="../../../assets/images/logoBibliotech.png" alt="Bibliotech Logo" class="logo">
+    <nav class="main-nav">
+      <a (click)="goBooksPage()" class="nav-link">Recherche</a>
+      <a (click)="goContributionsPage()" class="nav-link">Mes contributions</a>
+      <a (click)="goProfilPage()" class="nav-link">Profil</a>
+    </nav>
   </header>
   <button (click)="logout()" class="button" id="exit">Déconnexion</button>
+  
   <h1>Profil</h1>
   <div class="fenetre">
-    wowowowo
+    <form (ngSubmit)="saveChanges()">
+      <div class="gauche">
+      <div class="form-group">
+        <label for="email">Email:</label><br><br>
+        <input type="email" id="email" [(ngModel)]="currentUser.email" name="email" placeholder="{{currentUser.email}}" class="form-control">
+      </div><br><br>
+      <div class="form-group">
+        <label for="firstname">Prénom:</label><br><br>
+        <input type="text" id="firstname" [(ngModel)]="currentUser.firstname" name="firstname" placeholder="{{currentUser.firstname}}" class="form-control">
+      </div>
+    </div>
+    <div class="droite">
+      <div class="form-group">
+        <label for="lastname">Nom:</label><br><br>
+        <input type="text" id="lastname" [(ngModel)]="currentUser.lastname" name="lastname" placeholder="{{currentUser.lastname}}" class="form-control">
+      </div><br><br>
+      <div class="form-group">
+        <label for="password">Mot de passe:</label><br><br>
+        <input type="password" id="password" [(ngModel)]="currentUser.password" name="password" placeholder="********" class="form-control">
+      </div>
+    </div>
+      <button type="submit" class="btn btn-primary">Sauvegarder</button>
+
+      <!-- Bouton de soumission ou d'action ici si nécessaire -->
+    </form>
   </div>
 </div>

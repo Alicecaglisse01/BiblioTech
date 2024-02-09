@@ -56,3 +56,87 @@
   margin-left: 80%;
 
 }
+
+
+
+.card-container {
+  padding-left: 10%;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%; /* Espacement entre les cartes */
+  margin-top: 16%;
+  background-color: transparent;
+}
+
+.card {
+  cursor: pointer;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: calc(15% - 60px); /* Trois cartes par ligne avec l'espacement */
+}
+
+.card-img {
+  background: rgb(38,119,167);
+  background: linear-gradient(180deg, rgba(38,119,167,1) 33%, rgba(71,173,198,1) 63%);
+  width: 100%;
+  height: 200px; /* Hauteur fixe pour les images */
+  object-fit: cover; /* Ajuste et coupe l'image pour remplir le bloc */
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.card-author {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.card-rating {
+  font-size: 1em;
+  color: #f5a623; /* Couleur de l'étoile ou la note */
+}
+
+.card:hover,
+.card:focus {
+  transform: scale(1.05); /* Légèrement plus grand lors du survol */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Ombre plus prononcée pour un effet de profondeur */
+}
+
+h1{
+  color: white;
+  font-family: poppins, extra-bold;
+  margin-top: 10%;
+  margin-left: 37%;
+}
+
+.main-nav {
+  position: absolute;
+  display: flex;
+  gap: 200px; /* Espacement entre les liens */
+  margin-top: -3%;
+  margin-left: 10%;
+}
+
+.nav-link {
+  font-family: Poppins;
+  text-decoration: none;
+  color: #fff; /* Couleur du texte */
+  padding: 10px;
+  border-radius: 5px; /* Bords arrondis */
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  background-color: #0056b3; /* Couleur de fond au survol */
+}

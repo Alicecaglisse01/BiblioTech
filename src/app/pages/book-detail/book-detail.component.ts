@@ -24,10 +24,20 @@ export class BookDetailComponent implements OnInit {
     const bookId = +this.route.snapshot.params['id'];
     this.bookService.getBookById(bookId).subscribe(book => this.book = book);
   }
-  logout(): void {
-    // Redirige l'utilisateur vers la page de connexion
-    this.router.navigate(['/connexion']);
-    // Ici, vous pouvez également ajouter une logique pour effacer toutes les données d'authentification stockées
+  logout() {
+    localStorage.removeItem('user'); // Efface les informations de l'utilisateur connecté
+    this.router.navigate(['/connexion']); // Redirige vers la page de connexion
   }
+
+  goContributionsPage(){
+    this.router.navigate(['/contributions'])
+  }
+  goProfilPage(){
+    this.router.navigate(['/profil'])
+  }
+  goBooksPage(){
+    this.router.navigate(['/books'])
+  }
+  
 }
 

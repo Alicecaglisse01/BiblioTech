@@ -44,7 +44,6 @@ export class UserService {
     }
     return this.http.delete<User>(`${this.usersUrl}/${id}`);
   }
-
   
 
   // Méthode privée pour déterminer si l'utilisateur est un administrateur

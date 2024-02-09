@@ -63,12 +63,22 @@ export class BookListComponent implements OnInit {
       this.getBooksAndAuthors(); // Mettez à jour pour réafficher tous les livres avec les auteurs si la recherche est effacée
     }
   }
-  logout(): void {
-    // Redirige l'utilisateur vers la page de connexion
-    this.router.navigate(['/connexion']);
-    // Ici, vous pouvez également ajouter une logique pour effacer toutes les données d'authentification stockées
+  logout() {
+    localStorage.removeItem('user'); // Efface les informations de l'utilisateur connecté
+    this.router.navigate(['/connexion']); // Redirige vers la page de connexion
   }
+  
   goToBookDetail(bookId: number) {
     this.router.navigate(['/book', bookId]);
+  }
+
+  goContributionsPage(){
+    this.router.navigate(['/contributions'])
+  }
+  goProfilPage(){
+    this.router.navigate(['/profil'])
+  }
+  goBooksPage(){
+    this.router.navigate(['/books'])
   }
 }

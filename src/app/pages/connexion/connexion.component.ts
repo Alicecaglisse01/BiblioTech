@@ -26,9 +26,12 @@ export class ConnexionComponent {
   onSubmit() {
     const validUser = USERS.find(u => u.email === this.user.email && u.password === this.user.password);
     if (validUser) {
+      // Stockez les détails de l'utilisateur connecté dans le localStorage
+      localStorage.setItem('user', JSON.stringify(validUser));
       this.router.navigate(['/books']);
     } else {
       alert('Identifiants incorrects');
     }
   }
+  
 }
